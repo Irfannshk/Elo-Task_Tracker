@@ -4,30 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Elo Task Tracker</title>
-    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
+    <div class="chess-container">
+        <header class="chess-header">
+            <div class="elo-display">
+                <img src="https://www.chess.com/chess-themes/pieces/neo/150/wn.png" alt="Knight" class="piece-icon">
+                <div class="elo-box">
+                    <span class="elo-label">PRODUCTIVITY ELO</span>
+                    <span id="eloScore" class="elo-number">1200</span>
+                </div>
+            </div>
+            
+            <div class="focus-area">
+                <select id="focusSelect" class="chess-select" onchange="setFocus(this.value)">
+                    <option value="general">🎯 General Focus</option>
+                    <option value="fitness">💪 Fitness</option>
+                    <option value="study">📚 Study</option>
+                </select>
+            </div>
+        </header>
 
-    <h1>Elo Task Tracker</h1>
-    <p>Your daily task Elo system</p>
-    <p>Your Elo: <span id="elo-rating">1200</span></p>
+        <main class="chess-main">
+            <div class="chart-container">
+                <canvas id="eloChart"></canvas>
+            </div>
 
-    <!-- Task Input Section -->
-    <input type="text" id="new-task" placeholder="Enter a task">
-    <select id="task-category">
-        <option value="fitness">Fitness</option>
-        <option value="study">Study</option>
-        <option value="personal-development">Personal Development</option>
-    </select>
-    <button onclick="addTask()">Add Task</button>
+            <div class="task-management">
+                <div class="task-form chess-box">
+                    <input type="text" id="taskInput" class="chess-input" placeholder="Add new task...">
+                    <select id="difficultySelect" class="chess-select small">
+                        <option value="easy">⭐ Easy</option>
+                        <option value="medium">⭐⭐ Medium</option>
+                        <option value="hard">⭐⭐⭐ Hard</option>
+                    </select>
+                    <select id="categorySelect" class="chess-select small">
+                        <option value="general">📦 General</option>
+                        <option value="fitness">🏋️ Fitness</option>
+                        <option value="study">📖 Study</option>
+                    </select>
+                    <button onclick="addTask()" class="chess-button primary">Add Task</button>
+                </div>
 
-    <!-- Task List -->
-    <div class="task-list"></div>
+                <div id="taskList" class="task-list chess-box"></div>
+            </div>
+        </main>
+    </div>
 
-    <!-- Elo Chart -->
-    <canvas id="eloChart"></canvas>
-
-    <script src="scripts/app.js"></script>
-
+    <script src="app.js"></script>
 </body>
 </html>
