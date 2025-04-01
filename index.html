@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elo Task Tracker</title>
+    <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+
+    <h1>Elo Task Tracker</h1>
+    <p>Your daily task Elo system</p>
+    <p>Your Elo: <span id="elo-rating">1200</span></p>
+
+    <!-- Task Input Section -->
+    <input type="text" id="new-task" placeholder="Enter a task">
+    <select id="task-category">
+        <option value="fitness">Fitness</option>
+        <option value="study">Study</option>
+        <option value="personal-development">Personal Development</option>
+    </select>
+    <button onclick="addTask()">Add Task</button>
+
+    <!-- Task List -->
+    <div class="task-list"></div>
+
+    <!-- Elo Chart -->
+    <canvas id="eloChart"></canvas>
+
+    <script src="scripts/app.js"></script>
+
+</body>
+</html>
